@@ -1,5 +1,5 @@
-job('Aplicacion Node.js Docker DSL') {
-    description('Aplicación Node JS Docker DSL para el curso de Jenkins')
+job('Aplicacion Node.js Docker DSL Hijo') {
+    description('Aplicación Node JS Docker DSL Hijo para el curso de Jenkins')
     scm {
         git('https://github.com/AlfredLopezG/nodejsapp.git', 'master') { node ->
             node / gitConfigName('AlfredLopezG')
@@ -10,11 +10,11 @@ job('Aplicacion Node.js Docker DSL') {
         scm('H/7 * * * *')
     }
     wrappers {
-        nodejs('nodejs')
+        nodejs('nodeVersion01')
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('AlfredLopezG/nodejsapp')
+            repositoryName('alfredlg/nodejsdsl')
             tag('${GIT_REVISION,length=7}')
             registryCredentials('alfredlg')
             forcePull(false)
@@ -23,6 +23,7 @@ job('Aplicacion Node.js Docker DSL') {
         }
     }
     publishers {
+    	/*Se remueve porque no se tiene cuenta slack y marca error
 	slackNotifier {
             notifyAborted(true)
             notifyEveryFailure(true)
@@ -39,6 +40,6 @@ job('Aplicacion Node.js Docker DSL') {
             commitInfoChoice('NONE')
             teamDomain(null)
             authToken(null)
-        }
+        }*/
     }
 }
