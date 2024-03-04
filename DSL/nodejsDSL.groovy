@@ -1,5 +1,5 @@
-job('Aplicacion Node.js DSL') {
-    description('Aplicación Node JS DSL para el curso de Jenkins')
+job('Aplicacion nodeJS DSL hijo') {
+    description('Aplicación Node JS DSL hijo para el curso de Jenkins')
     scm {
         git('https://github.com/AlfredLopezG/nodejsapp.git', 'master') { node ->
             node / gitConfigName('AlfredLopezG')
@@ -10,7 +10,7 @@ job('Aplicacion Node.js DSL') {
         scm('H/7 * * * *')
     }
     wrappers {
-        nodejs('nodejs')
+        nodejs('nodeVersion01')
     }
     steps {
         shell("npm install")
