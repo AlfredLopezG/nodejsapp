@@ -16,6 +16,7 @@ job('Aplicacion nodeJS DSL hijo') {
         shell("npm install")
     }
     publishers {
+	    /* Se elimina por no contar con cuenta de slack y marca error
 	slackNotifier {
             notifyAborted(true)
             notifyEveryFailure(true)
@@ -33,5 +34,6 @@ job('Aplicacion nodeJS DSL hijo') {
             teamDomain(null)
             authToken(null)
         }
+	*/
     }
 }
